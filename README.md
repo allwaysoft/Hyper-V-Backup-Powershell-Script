@@ -132,3 +132,13 @@ Hyper-V-Backup.ps1 -BackupTo \\nas\vms -List C:\scripts\vms.txt -NoPerms -Keep 3
 ```
 
 This will shutdown all the VMs listed in the file located in C:\scripts\vms.txt, and back up their files to \\nas\vms. Each VM will have their own folder. A zip file for each VM folder will be created, and the folder will be deleted. Any backups older than 30 days will also be deleted. The log file will be output to C:\scripts\logs and sent via e-mail with a custom subject line.
+
+
+PS C:\hypervbackup> .\hypervbackup.ps1 -VM win10 -exportpath C:\hypervbackup\export -logpath C:\hypervbackup\log -ProductionCheckpoint $true
+已启动脚本，输出文件为 C:\hypervbackup\log\2019-12-09.log
+2019/12/9 11:24:05 Checkpoint is Create
+详细信息: Checkpoint-VM 将为虚拟机“win10”创建快照。
+详细信息: Export-VMSnapshot 会将快照“ExportScriptCheckpoint”导出到给定的位置。
+详细信息: Remove-VMSnapshot 将删除快照“ExportScriptCheckpoint”。
+2019/12/9 11:36:36 Export completed
+PS C:\hypervbackup>
